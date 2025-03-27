@@ -1,59 +1,75 @@
-# Chirp2vgc
+# CSV Viewer Application
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.4.
+A web application for uploading and viewing CSV files in a data table format.
 
-## Development server
+## Features
 
-To start a local development server, run:
+- Upload CSV files (up to 1MB)
+- View CSV data in an interactive table
+- Sort data by columns
+- Paginate through large datasets
+- Responsive design for all screen sizes
 
-```bash
-ng serve
-```
+## Getting Started
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### Prerequisites
 
-## Code scaffolding
+- Node.js (v16.x or higher)
+- NPM (v8.x or higher)
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### Installation
 
-```bash
-ng generate component component-name
-```
+1. Clone the repository:
+   ```
+   git clone https://github.com/yourusername/csv-viewer-app.git
+   cd csv-viewer-app
+   ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+2. Install dependencies:
+   ```
+   npm install
+   ```
 
-```bash
-ng generate --help
-```
+3. Start the development server:
+   ```
+   npm start
+   ```
 
-## Building
+4. Open your browser and navigate to:
+   ```
+   http://localhost:4200
+   ```
 
-To build the project run:
+## Usage
 
-```bash
-ng build
-```
+1. Click the "Select CSV" button to select a CSV file from your computer.
+2. The application will automatically parse the file and display its contents in a table.
+3. You can sort the data by clicking on column headers.
+4. Use the pagination controls to navigate through large datasets.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Testing
 
-## Running unit tests
+Sample CSV files are included in the `test-data` directory:
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+- `sample.csv` - A simple CSV file with basic user data
+- `complex_data.csv` - A more complex CSV file with multiple columns
 
-```bash
-ng test
-```
+## Technologies Used
 
-## Running end-to-end tests
+- Angular 19
+- PrimeNG for UI components
+- PapaParse for CSV parsing
+- Angular Material for additional UI elements
+- PrimeFlex for CSS utilities
 
-For end-to-end (e2e) testing, run:
+## Troubleshooting
 
-```bash
-ng e2e
-```
+If the CSV data is not displayed after upload:
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+1. Make sure your CSV file has headers (first row with column names)
+2. Check that the CSV is properly formatted (comma-separated values)
+3. Try uploading one of the sample CSV files in the `test-data` directory
 
-## Additional Resources
+## License
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+This project is licensed under the MIT License - see the LICENSE file for details.

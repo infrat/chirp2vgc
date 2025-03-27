@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "chirp2vgc": {
+    "chirp2vgc-web": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/chirp2vgc",
+            "outputPath": "dist/chirp2vgc-web",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -64,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "chirp2vgc:build:production"
+              "buildTarget": "chirp2vgc-web:build:production"
             },
             "development": {
-              "buildTarget": "chirp2vgc:build:development"
+              "buildTarget": "chirp2vgc-web:build:development"
             }
           },
           "defaultConfiguration": "development"

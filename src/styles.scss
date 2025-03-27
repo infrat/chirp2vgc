@@ -1,1 +1,443 @@
 /* You can add global styles to this file, and also import other style files */
+/* Angular Material Theme */
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+
+/* PrimeFlex for layout */
+@import "primeflex/primeflex.css";
+
+/* PrimeNG Theme - Using CDN for compatibility */
+@import "https://cdn.jsdelivr.net/npm/primeng@19.0.10/resources/themes/lara-light-blue/theme.min.css";
+@import "https://cdn.jsdelivr.net/npm/primeng@19.0.10/resources/primeng.min.css";
+@import "https://cdn.jsdelivr.net/npm/primeicons@latest/primeicons.min.css";
+
+/* AG-Grid Styles - Legacy theme only (not mixing with new Theming API) */
+@import "ag-grid-community/styles/ag-grid.css";
+@import "ag-grid-community/styles/ag-theme-alpine.css";
+
+/* Base application variables */
+:root {
+  --primary-color: #3f51b5;
+  --secondary-color: #5c6bc0;
+  --accent-color: #e91e63;
+  --surface-a: #ffffff;
+  --surface-b: #f8f9fa;
+  --surface-c: #f0f0f0;
+  --surface-d: #e0e0e0;
+  --text-color: #333333;
+  --text-color-secondary: #666666;
+  --error-color: #f44336;
+  --success-color: #4caf50;
+  --warning-color: #ff9800;
+  --info-color: #2196f3;
+}
+
+/* Global styles */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
+  background-color: var(--surface-b);
+  color: var(--text-color);
+  height: 100%;
+  font-size: 16px;
+  max-width: 100vw;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+/* Responsive font scaling */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+/* Common utility classes */
+.text-center {
+  text-align: center;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.p-component {
+  font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
+}
+
+/* Override PrimeNG styles to match our theme */
+.p-button.p-button-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.p-card {
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* AG-Grid customizations */
+.ag-theme-alpine {
+  --ag-font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
+  --ag-font-size: 14px;
+  --ag-header-background-color: var(--surface-c);
+  --ag-header-foreground-color: var(--text-color);
+  --ag-header-column-separator-color: var(--surface-d);
+  --ag-border-color: var(--surface-d);
+  --ag-row-hover-color: rgba(63, 81, 181, 0.08);
+  --ag-selected-row-background-color: rgba(63, 81, 181, 0.2);
+  --ag-odd-row-background-color: var(--surface-b);
+  --ag-row-border-color: var(--surface-d);
+  --ag-cell-horizontal-padding: 8px;
+  border: 1px solid var(--surface-d);
+  border-radius: 4px;
+}
+
+.ag-theme-alpine .ag-header-cell {
+  font-weight: 600;
+}
+
+.ag-theme-alpine .ag-row-editing {
+  background-color: rgba(63, 81, 181, 0.1);
+}
+
+.ag-theme-alpine .ag-cell-inline-editing {
+  border: 2px solid var(--primary-color);
+  background-color: white;
+}
+
+.pagination-info {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-color-secondary);
+}
+
+/* Animation utilities */
+.fade-in {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* PrimeNG Dialog Styling */
+.p-confirm-dialog {
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
+  border: 1px solid #ddd !important;
+}
+
+.p-confirm-dialog .p-dialog-header {
+  background-color: #3f51b5 !important;
+  color: white !important;
+  padding: 1rem !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+.p-confirm-dialog .p-dialog-header .p-dialog-title {
+  font-weight: 600 !important;
+  font-size: 1.2rem !important;
+  margin: 0 !important;
+}
+
+.p-confirm-dialog .p-dialog-content {
+  padding: 1.5rem !important;
+  background-color: white !important;
+  color: #333 !important;
+}
+
+.p-confirm-dialog .p-dialog-footer {
+  background-color: #f8f9fa !important;
+  padding: 1rem !important;
+  border-top: 1px solid #e9ecef !important;
+  display: flex !important;
+  justify-content: flex-end !important;
+}
+
+.p-confirm-dialog .p-button {
+  margin-left: 0.5rem !important;
+  font-weight: 500 !important;
+}
+
+.p-dialog-mask.p-component-overlay {
+  background-color: rgba(0, 0, 0, 0.4) !important;
+  backdrop-filter: blur(2px) !important;
+}
+
+/* Button styling */
+.p-button-success {
+  background-color: #4caf50 !important;
+  border-color: #4caf50 !important;
+  color: white !important;
+}
+
+.p-button-success:hover {
+  background-color: #3d8b40 !important;
+  border-color: #3d8b40 !important;
+}
+
+.p-button-danger {
+  background-color: #f44336 !important;
+  border-color: #f44336 !important;
+  color: white !important;
+}
+
+.p-button-danger:hover {
+  background-color: #d32f2f !important;
+  border-color: #d32f2f !important;
+}
+
+.p-button-warning {
+  background-color: #ff9800 !important;
+  border-color: #ff9800 !important;
+  color: white !important;
+}
+
+.p-button-warning:hover {
+  background-color: #f57c00 !important;
+  border-color: #f57c00 !important;
+}
+
+.p-button-secondary {
+  background-color: #f8f9fa !important;
+  color: #333 !important;
+  border-color: #ced4da !important;
+}
+
+.p-button-secondary:hover {
+  background-color: #e9ecef !important;
+}
+
+/* AG Grid Full Width Styles */
+.ag-theme-alpine.wide-grid {
+  width: 100% !important;
+  height: 700px !important;
+  max-width: 100%;
+}
+
+/* Remove extra padding on app container */
+.app-container {
+  width: 100%;
+  max-width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+/* Optimize for full width content */
+.main-content {
+  max-width: 100% !important;
+  padding: 0 !important;
+  width: 100% !important;
+}
+
+/* Custom AG Grid styling */
+.ag-theme-alpine {
+  --ag-header-height: 40px;
+  --ag-header-foreground-color: #333;
+  --ag-header-background-color: #f5f7f9;
+  --ag-row-hover-color: rgba(63, 81, 181, 0.1);
+  --ag-selected-row-background-color: rgba(63, 81, 181, 0.2);
+
+  .ag-cell {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .ag-header-cell {
+    font-weight: 600;
+  }
+}
+
+/* Maximize space for AG Grid */
+body, html {
+  max-width: 100vw;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Make sure AG Grid gets maximum width */
+.mega-wide-grid {
+  width: 90% !important;
+  max-width: 90% !important;
+  height: 700px !important;
+  margin: 0 auto !important;
+  border: 1px solid var(--surface-d, #e0e0e0) !important;
+  overflow-x: auto !important;
+}
+
+/* Add some breathing room between grid and edges */
+@media (min-width: 2000px) {
+  .mega-wide-grid {
+    width: 90% !important;
+    margin: 0 auto !important;
+  }
+}
+
+/* Override container constraints but allow for margins */
+.app-container,
+.container,
+.main-content {
+  max-width: 100% !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+}
+
+/* Ensure content containers have proper width */
+.full-width-container {
+  max-width: 90% !important;
+  width: 90% !important;
+  margin: 0 auto !important;
+  padding: 0.5rem !important;
+  overflow-x: hidden !important;
+}
+
+/* Ensure columns don't get too narrow in the grid */
+.ag-theme-alpine {
+  --ag-cell-horizontal-padding: 8px;
+
+  .ag-header-cell,
+  .ag-cell {
+    min-width: 150px !important;
+  }
+}
+
+/* Custom header text styling */
+.app-header h1 {
+  color: #ffffff !important;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2) !important;
+  margin: 0 !important;
+  font-weight: 500 !important;
+}
+
+.app-header .app-subtitle {
+  color: #f0f0f0 !important;
+  margin-top: 0.25rem !important;
+  font-size: 1rem !important;
+}
+
+/* Custom button styling for header buttons */
+.header-buttons .p-button-info {
+  background-color: rgba(255, 255, 255, 0.3) !important;
+  border-color: rgba(255, 255, 255, 0.5) !important;
+  color: white !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12) !important;
+}
+
+.header-buttons .p-button-info:hover {
+  background-color: rgba(255, 255, 255, 0.4) !important;
+  border-color: rgba(255, 255, 255, 0.6) !important;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Improved Toast Notifications */
+.p-toast {
+  opacity: 0.97 !important;
+
+  .p-toast-message {
+    border-radius: 8px !important;
+    border: none !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15) !important;
+    backdrop-filter: blur(10px) !important;
+    padding: 1rem 1.5rem !important;
+    margin-bottom: 1rem !important;
+
+    &.p-toast-message-success {
+      background: linear-gradient(135deg, rgba(67, 160, 71, 0.95), rgba(102, 187, 106, 0.95)) !important;
+      border-left: none !important;
+      color: white !important;
+
+      .p-toast-message-icon,
+      .p-toast-icon-close {
+        color: white !important;
+      }
+
+      .p-toast-summary {
+        font-weight: 600 !important;
+        font-size: 1.1rem !important;
+        color: white !important;
+      }
+
+      .p-toast-detail {
+        font-size: 0.95rem !important;
+        color: rgba(255, 255, 255, 0.9) !important;
+        margin-top: 0.25rem !important;
+      }
+    }
+
+    &.p-toast-message-info {
+      background: linear-gradient(135deg, rgba(30, 136, 229, 0.95), rgba(33, 150, 243, 0.95)) !important;
+      border-left: none !important;
+      color: white !important;
+
+      .p-toast-message-icon,
+      .p-toast-icon-close {
+        color: white !important;
+      }
+
+      .p-toast-summary {
+        font-weight: 600 !important;
+        font-size: 1.1rem !important;
+        color: white !important;
+      }
+
+      .p-toast-detail {
+        font-size: 0.95rem !important;
+        color: rgba(255, 255, 255, 0.9) !important;
+        margin-top: 0.25rem !important;
+      }
+    }
+
+    &.p-toast-message-warn {
+      background: linear-gradient(135deg, rgba(255, 152, 0, 0.95), rgba(251, 140, 0, 0.95)) !important;
+      border-left: none !important;
+      color: white !important;
+
+      .p-toast-message-icon,
+      .p-toast-icon-close {
+        color: white !important;
+      }
+
+      .p-toast-summary {
+        font-weight: 600 !important;
+        font-size: 1.1rem !important;
+        color: white !important;
+      }
+
+      .p-toast-detail {
+        font-size: 0.95rem !important;
+        color: rgba(255, 255, 255, 0.9) !important;
+        margin-top: 0.25rem !important;
+      }
+    }
+
+    &.p-toast-message-error {
+      background: linear-gradient(135deg, rgba(229, 57, 53, 0.95), rgba(244, 67, 54, 0.95)) !important;
+      border-left: none !important;
+      color: white !important;
+
+      .p-toast-message-icon,
+      .p-toast-icon-close {
+        color: white !important;
+      }
+
+      .p-toast-summary {
+        font-weight: 600 !important;
+        font-size: 1.1rem !important;
+        color: white !important;
+      }
+
+      .p-toast-detail {
+        font-size: 0.95rem !important;
+        color: rgba(255, 255, 255, 0.9) !important;
+        margin-top: 0.25rem !important;
+      }
+    }
+  }
+}

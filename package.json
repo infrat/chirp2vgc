@@ -1,5 +1,5 @@
 {
-  "name": "chirp2vgc",
+  "name": "chirp2vgc-web",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -10,13 +10,22 @@
   },
   "private": true,
   "dependencies": {
+    "@angular/cdk": "^19.2.6",
     "@angular/common": "^19.2.0",
     "@angular/compiler": "^19.2.0",
     "@angular/core": "^19.2.0",
     "@angular/forms": "^19.2.0",
+    "@angular/material": "^19.2.6",
     "@angular/platform-browser": "^19.2.0",
     "@angular/platform-browser-dynamic": "^19.2.0",
     "@angular/router": "^19.2.0",
+    "@types/papaparse": "^5.3.15",
+    "ag-grid-angular": "^33.1.1",
+    "ag-grid-community": "^33.1.1",
+    "papaparse": "^5.5.2",
+    "primeflex": "^4.0.0",
+    "primeicons": "^7.0.0",
+    "primeng": "^19.0.10",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"

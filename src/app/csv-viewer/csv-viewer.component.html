@@ -1,0 +1,119 @@
+<div class="container">
+  <p-toast position="top-right"></p-toast>
+  <p-confirmDialog
+    [style]="{ width: '450px' }"
+    acceptLabel="Yes"
+    rejectLabel="No"
+    [baseZIndex]="10000"
+    styleClass="custom-confirm-dialog"
+    acceptIcon="pi pi-check"
+    rejectIcon="pi pi-times"
+  >
+  </p-confirmDialog>
+
+  <!-- Header Actions positioned at the top right of the app header -->
+  <div class="header-actions">
+    <div class="header-buttons">
+      <!-- File upload component always visible in the header -->
+      <p-fileUpload
+        #fileUpload
+        mode="basic"
+        chooseLabel="Select CSV"
+        [auto]="true"
+        accept=".csv"
+        [maxFileSize]="1000000"
+        (onSelect)="onFileSelect($event)"
+        [showUploadButton]="false"
+        [showCancelButton]="false"
+        styleClass="header-upload-btn"
+      ></p-fileUpload>
+
+      <!-- Download button only when data is loaded -->
+      <button
+        *ngIf="csvData.length > 0"
+        pButton
+        label="Download CSV"
+        icon="pi pi-download"
+        styleClass="header-download-btn"
+        (click)="downloadCsv()"
+      ></button>
+    </div>
+  </div>
+
+  <!-- Loading indicator when processing file -->
+  <div *ngIf="loading" class="loading-indicator">
+    <p-progressSpinner
+      styleClass="w-4rem h-4rem"
+      strokeWidth="4"
+      fill="var(--surface-ground)"
+      animationDuration=".5s"
+    ></p-progressSpinner>
+    <p>Processing file...</p>
+  </div>
+
+  <!-- Only show content when CSV data is loaded -->
+  <div
+    class="full-width-container"
+    *ngIf="csvData.length > 0"
+    style="
+      width: 90% !important;
+      max-width: 90% !important;
+      padding: 0.5rem !important;
+      margin: 0 auto !important;
+    "
+  >
+    <!-- Debug information -->
+    <div class="debug-info">
+      <p>
+        Loaded {{ csvData.length }} rows with {{ columns.length }} columns
+        <span *ngIf="hasChanges()" class="modified-indicator">
+          (Modified)
+        </span>
+      </p>
+    </div>
+
+    <!-- Table section with AG Grid -->
+    <div
+      class="table-section"
+      style="
+        width: 90% !important;
+        max-width: 90% !important;
+        margin: 0 auto !important;
+      "
+    >
+      <h3>CSV Data</h3>
+
+      <ag-grid-angular
+        class="ag-theme-alpine mega-wide-grid"
+        style="
+          width: 90% !important;
+          max-width: 90% !important;
+          margin: 0 auto !important;
+        "
+        [rowData]="csvData"
+        [columnDefs]="columnDefs"
+        [defaultColDef]="defaultColDef"
+        rowSelection="multiple"
+        [pagination]="true"
+        [paginationPageSize]="15"
+        [animateRows]="true"
+        [suppressCellFocus]="false"
+        rowModelType="clientSide"
+        theme="legacy"
+        (cellValueChanged)="onCellValueChanged($event)"
+      >
+      </ag-grid-angular>
+
+      <!-- Debug information at the bottom -->
+      <div class="pagination-info">
+        <span>Total: {{ csvData.length }} rows</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Welcome message when no data is loaded and not loading -->
+  <div *ngIf="!csvData.length && !loading" class="welcome-message">
+    <h2>Welcome to CSV Viewer & Editor</h2>
+    <p>Please click the "Select CSV" button in the header to upload a file.</p>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+id,name,email,age,city,country
+1,John Doe,john.doe@example.com,32,New York,USA
+2,Jane Smith,jane.smith@example.com,28,London,UK
+3,Alice Johnson,alice.j@example.com,35,Toronto,Canada
+4,Bob Williams,bob.w@example.com,41,Sydney,Australia
+5,Maria Garcia,maria.g@example.com,29,Madrid,Spain
+6,Mohammed Ali,mohammed.a@example.com,36,Cairo,Egypt
+7,Li Wei,li.wei@example.com,33,Beijing,China
+8,Sophia Müller,sophia.m@example.com,27,Berlin,Germany
+9,Carlos Rodriguez,carlos.r@example.com,31,Mexico City,Mexico
+10,Anna Kowalski,anna.k@example.com,38,Warsaw,Poland

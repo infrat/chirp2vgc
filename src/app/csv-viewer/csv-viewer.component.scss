@@ -1,0 +1,394 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.main-card {
+  margin: 0.5rem auto;
+  width: 98%;
+  max-width: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.upload-section {
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  background-color: var(--surface-a, #ffffff);
+  border-radius: 4px;
+  border: 1px solid var(--surface-d, #e0e0e0);
+
+  h3 {
+    margin-bottom: 0.75rem;
+    color: var(--primary-color, #3f51b5);
+    font-size: 1.4rem;
+  }
+
+  p {
+    margin-bottom: 1.5rem;
+    color: var(--text-color, #333);
+    font-size: 1.1rem;
+  }
+}
+
+.upload-button-container {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+.loading-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 4rem auto;
+  text-align: center;
+
+  p {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    color: var(--text-color-secondary, #666);
+  }
+}
+
+.debug-info {
+  width: 90%;
+  margin: 0 auto 1rem auto;
+  padding: 0.5rem;
+
+  p {
+    font-size: 0.9rem;
+    color: var(--text-color-secondary, #666);
+  }
+
+  .modified-indicator {
+    color: var(--primary-color, #3f51b5);
+    font-weight: 500;
+  }
+}
+
+.table-section {
+  width: 90%;
+  margin: 0 auto;
+  padding: 0;
+
+  h3 {
+    margin-bottom: 1rem;
+    color: var(--text-color, #333);
+    font-size: 1.4rem;
+  }
+
+  // AG Grid styling
+  ag-grid-angular {
+    margin: 1rem 0;
+
+    &.edit-mode-active {
+      border: 1px solid var(--primary-color, #3f51b5);
+      box-shadow: 0 0 8px rgba(63, 81, 181, 0.3);
+    }
+  }
+
+  // Pagination info
+  .pagination-info {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 0.5rem;
+
+    span {
+      font-size: 0.9rem;
+      color: var(--text-color-secondary, #666);
+    }
+  }
+}
+
+.action-toolbar {
+  margin: 1.5rem 0;
+
+  .mr-2 {
+    margin-right: 0.75rem;
+  }
+}
+
+// Fix for better spacing
+.mb-3 {
+  margin-bottom: 1rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+// Animations
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+// Header actions positioning
+.header-actions {
+  position: fixed;
+  top: 1.5rem;
+  right: 2rem;
+  z-index: 100;
+
+  .header-buttons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+}
+
+// Welcome message
+.welcome-message {
+  text-align: center;
+  margin: 4rem auto;
+  max-width: 600px;
+
+  h2 {
+    color: var(--primary-color, #3f51b5);
+    margin-bottom: 1rem;
+    font-size: 2rem;
+  }
+
+  p {
+    color: var(--text-color-secondary, #666);
+    font-size: 1.2rem;
+    line-height: 1.6;
+  }
+}
+
+:host ::ng-deep {
+  .p-fileupload-buttonbar {
+    padding: 0;
+  }
+
+  .p-fileupload .p-button {
+    margin-right: 0;
+    padding: 0.75rem 1.25rem;
+    font-size: 1.1rem;
+  }
+
+  .p-card {
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .overflow-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  // Style the toolbar
+  .p-toolbar {
+    padding: 0.5rem;
+    background-color: var(--surface-a, #ffffff);
+    border: 1px solid var(--surface-d, #e0e0e0);
+    border-radius: 4px;
+  }
+
+  // Enhanced styling for confirmation dialogs with more specific selectors
+  .p-dialog.p-confirm-dialog,
+  .p-dialog.p-component {
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    border: 1px solid #ddd;
+
+    .p-dialog-header {
+      background-color: var(--primary-color, #3f51b5);
+      color: white;
+      padding: 1rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+      .p-dialog-title {
+        font-weight: 600;
+        font-size: 1.2rem;
+        margin: 0;
+      }
+
+      .p-dialog-header-icons {
+        .p-dialog-header-icon {
+          color: white;
+          margin-left: 0.5rem;
+
+          &:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+          }
+        }
+      }
+    }
+
+    .p-dialog-content {
+      padding: 1.5rem;
+      background-color: white;
+      color: var(--text-color, #333);
+      font-size: 1rem;
+      line-height: 1.5;
+
+      .p-confirm-dialog-icon {
+        font-size: 1.5rem;
+        margin-right: 0.5rem;
+        color: var(--primary-color, #3f51b5);
+      }
+
+      .p-confirm-dialog-message {
+        margin-left: 0.5rem;
+      }
+    }
+
+    .p-dialog-footer {
+      background-color: #f8f9fa;
+      padding: 1rem;
+      border-top: 1px solid #e9ecef;
+      display: flex;
+      justify-content: flex-end;
+
+      button {
+        margin-left: 0.5rem;
+        font-weight: 500;
+        padding: 0.5rem 1rem;
+
+        &.p-button-secondary,
+        &.p-confirm-dialog-reject {
+          background-color: #f8f9fa;
+          color: var(--text-color, #333);
+          border: 1px solid #ced4da;
+
+          &:hover {
+            background-color: #e9ecef;
+            border-color: #ced4da;
+          }
+        }
+
+        &.p-button-success,
+        &.p-button-danger,
+        &.p-button-warning,
+        &.p-confirm-dialog-accept {
+          color: white;
+        }
+
+        &.p-button-success {
+          background-color: #4caf50;
+          border-color: #4caf50;
+
+          &:hover {
+            background-color: #3d8b40;
+            border-color: #3d8b40;
+          }
+        }
+
+        &.p-button-danger {
+          background-color: #f44336;
+          border-color: #f44336;
+
+          &:hover {
+            background-color: #d32f2f;
+            border-color: #d32f2f;
+          }
+        }
+
+        &.p-button-warning {
+          background-color: #ff9800;
+          border-color: #ff9800;
+
+          &:hover {
+            background-color: #f57c00;
+            border-color: #f57c00;
+          }
+        }
+      }
+    }
+  }
+
+  // Make sure confirm dialog mask is visible with more specific selectors
+  .p-dialog-mask.p-component-overlay {
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(2px);
+    z-index: 1000;
+  }
+
+  // Style for the upload button in the header
+  .header-upload-btn,
+  .header-download-btn {
+    .p-button {
+      background-color: rgba(255, 255, 255, 0.3) !important;
+      border-color: rgba(255, 255, 255, 0.5) !important;
+      padding: 0.5rem 1rem;
+      font-weight: 500;
+      border-radius: 4px;
+      transition: all 0.2s;
+      color: white !important;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.4) !important;
+        border-color: rgba(255, 255, 255, 0.6) !important;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+      }
+    }
+  }
+
+  // Toast message styling
+  .p-toast {
+    .p-toast-message {
+      border-radius: 4px;
+
+      &.p-toast-message-success {
+        background-color: #e8f5e9;
+        border-left: 6px solid #43a047;
+        color: #1b5e20;
+      }
+
+      &.p-toast-message-info {
+        background-color: #e3f2fd;
+        border-left: 6px solid #2196f3;
+        color: #0d47a1;
+      }
+
+      &.p-toast-message-warn {
+        background-color: #fff8e1;
+        border-left: 6px solid #ffa000;
+        color: #ff6f00;
+      }
+
+      &.p-toast-message-error {
+        background-color: #ffebee;
+        border-left: 6px solid #e53935;
+        color: #b71c1c;
+      }
+    }
+  }
+}
+
+// Wider grid styles
+.wide-grid {
+  width: 90% !important;
+  height: 700px !important;
+}
+
+// Full width container for table content
+.full-width-container {
+  width: 90%;
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
+// Super wide grid styles
+.mega-wide-grid {
+  width: 90% !important;
+  max-width: 90% !important;
+  height: 700px !important;
+  margin: 0 auto !important;
+  border: 1px solid var(--surface-d, #e0e0e0) !important;
+}
