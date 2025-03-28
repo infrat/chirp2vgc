@@ -39,14 +39,8 @@ export interface LocalColDef extends ColDef {
  */
 export interface MappingConfig {
   /**
-   * Name of the mapping configuration for reference
-   */
-  name: string;
-
-  /**
    * Description of what this mapping does
    */
-  description?: string;
   columnDefinitions: LocalColDef[];
 
   /**
@@ -86,8 +80,6 @@ export class CsvMapperService {
    * @returns Transformed CSV data in the target format
    */
   mapData(inputData: CsvData[], mappingConfig: MappingConfig): CsvData[] {
-    console.log(`Applying mapping: ${mappingConfig.name}`);
-
     // Array to collect the mapped output rows
     const outputData: CsvData[] = [];
 

@@ -33,7 +33,7 @@ import {
 } from 'ag-grid-community';
 import * as Papa from 'papaparse';
 import { CsvMapperService } from '../services/csv-mapper.service';
-import { CSV_MAPPINGS } from '../services/csv-mapping-definitions';
+import { mapping } from '../services/csv-mapping-definitions';
 
 // Register required AG Grid modules
 ModuleRegistry.registerModules([
@@ -139,7 +139,6 @@ export class CsvViewerComponent implements OnInit {
           this.loading = false;
           return;
         }
-        const mapping = CSV_MAPPINGS[this.mappingName];
         const mappedData = this.csvMapper.mapData(
           result.data as CsvData[],
           mapping

@@ -65,14 +65,9 @@
     <!-- Debug information -->
     <div class="debug-info">
       <p>
-        Loaded {{ csvData.length }} rows
-        <span *ngIf="hasChanges()" class="modified-indicator">
-          (Modified)
-        </span>
-      </p>
-      <p>
-        By double-click on a cell you can edit a value. Hit enter to save the
-        changes.
+        By double-click on a cell you can edit a value.<br />
+        Hit ENTER to save the changes<br />
+        Hit ESC to cancel edition
       </p>
     </div>
 
@@ -85,13 +80,18 @@
         margin: 0 auto !important;
       "
     >
-      <h3>CSV Data</h3>
+      <h3>
+        CSV Data
+        <span *ngIf="hasChanges()" class="modified-indicator">
+          (Modified)
+        </span>
+      </h3>
 
       <ag-grid-angular
         class="ag-theme-alpine mega-wide-grid"
         style="
-          width: 90% !important;
-          max-width: 90% !important;
+          width: 100% !important;
+          max-width: 100% !important;
           margin: 0 auto !important;
         "
         [rowData]="csvData"
@@ -107,17 +107,33 @@
         (cellValueChanged)="onCellValueChanged($event)"
       >
       </ag-grid-angular>
-
-      <!-- Debug information at the bottom -->
-      <div class="pagination-info">
-        <span>Total: {{ csvData.length }} rows</span>
-      </div>
     </div>
   </div>
 
   <!-- Welcome message when no data is loaded and not loading -->
   <div *ngIf="!csvData.length && !loading" class="welcome-message">
     <h2>Welcome to Chirp2VGC Converter</h2>
+    <p>
+      The purpose of this tool is to enable the conversion of a generic CSV
+      format from the
+      <a
+        href="https://chirpmyradio.com/projects/chirp/wiki/Home"
+        target="_blank"
+        >CHIRP</a
+      >
+      program into a format supported by the
+      <a
+        href="https://play.google.com/store/apps/details?id=com.benshikj.ht"
+        target="_blank"
+        >HT</a
+      >
+      application designed to work with Vero VGC VR-76 radios (BTech UV-PRO,
+      etc.).
+    </p>
     <p>Please click "Select CSV" button to upload and convert CHIRP file.</p>
+    <small>
+      This application operates in client-side mode; the data you upload is not
+      stored on any server.
+    </small>
   </div>
 </div>
