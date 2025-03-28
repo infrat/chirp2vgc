@@ -27,7 +27,7 @@ export interface MappingRule {
    * Optional transformation function to apply to the field value
    * If not provided, the value will be used as-is
    */
-  transform?: (value: string, row: CsvData) => string;
+  transform?: (value: string, row: CsvData) => string | null;
 }
 
 export interface LocalColDef extends ColDef {
@@ -119,7 +119,6 @@ export class CsvMapperService {
    */
   private mapRow(inputRow: CsvData, mappingConfig: MappingConfig): CsvData[] {
     const mappedRow: CsvData = {};
-
     for (const column of mappingConfig.columnDefinitions) {
       if (!column.field) {
         continue;
@@ -127,18 +126,20 @@ export class CsvMapperService {
       const ruleList = mappingConfig.rules.filter(
         (rule) => rule.targetField === column.field
       );
+      mappedRow[column.field] = column.defaultValue;
       for (const rule of ruleList) {
         if (!rule) {
-          mappedRow[column.field] = column.defaultValue;
           continue;
         }
-        let value = inputRow[rule.sourceField] ?? '';
+        let value: string | null = inputRow[rule.sourceField] ?? '';
 
         if (rule.transform) {
           value = rule.transform(value, inputRow);
         }
 
-        mappedRow[column.field] = value;
+        if (value) {
+          mappedRow[column.field] = value;
+        }
       }
     }
 
@@ -152,7 +153,6 @@ export class CsvMapperService {
         ...expandedRow,
       }));
     }
-
     // Return the single mapped row
     return [mappedRow];
   }

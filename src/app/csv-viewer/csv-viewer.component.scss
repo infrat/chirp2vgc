@@ -319,8 +319,8 @@
   // Style for the upload button in the header
   .header-upload-btn,
   .header-download-btn {
-    .p-button {
-      background-color: rgba(255, 255, 255, 0.3) !important;
+    .p-button, button {
+      background-color: rgba(63, 181, 154, 0.3) !important;
       border-color: rgba(255, 255, 255, 0.5) !important;
       padding: 0.5rem 1rem;
       font-weight: 500;

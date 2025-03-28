@@ -11,6 +11,6 @@ import { CommonModule } from '@angular/common';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'CSV Viewer & Editor Application';
+  title = 'Chirp2VGC Online Converter';
   currentYear = new Date().getFullYear();
 }

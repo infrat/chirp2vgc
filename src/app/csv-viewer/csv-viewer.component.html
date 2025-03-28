@@ -65,10 +65,14 @@
     <!-- Debug information -->
     <div class="debug-info">
       <p>
-        Loaded {{ csvData.length }} rows with {{ columns.length }} columns
+        Loaded {{ csvData.length }} rows
         <span *ngIf="hasChanges()" class="modified-indicator">
           (Modified)
         </span>
+      </p>
+      <p>
+        By double-click on a cell you can edit a value. Hit enter to save the
+        changes.
       </p>
     </div>
 
@@ -113,7 +117,7 @@
 
   <!-- Welcome message when no data is loaded and not loading -->
   <div *ngIf="!csvData.length && !loading" class="welcome-message">
-    <h2>Welcome to CSV Viewer & Editor</h2>
-    <p>Please click the "Select CSV" button in the header to upload a file.</p>
+    <h2>Welcome to Chirp2VGC Converter</h2>
+    <p>Please click "Select CSV" button to upload and convert CHIRP file.</p>
   </div>
 </div>

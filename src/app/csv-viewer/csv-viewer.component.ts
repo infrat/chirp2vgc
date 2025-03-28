@@ -146,7 +146,6 @@ export class CsvViewerComponent implements OnInit {
         );
 
         this.csvData = [...mappedData];
-        console.log(this.csvData);
         // Generate column definitions for AG Grid - always editable
         this.columnDefs = mapping.columnDefinitions;
 

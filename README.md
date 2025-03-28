@@ -1,10 +1,10 @@
-# CSV Viewer Application
+# Chirp2VGC Online Converter
 
-A web application for uploading and viewing CSV files in a data table format.
+A web application for uploading and viewing CHIRP CSV files in a data table format.
 
 ## Features
 
-- Upload CSV files (up to 1MB)
+- Upload CHIRP CSV files (up to 1MB)
 - View CSV data in an interactive table
 - Sort data by columns
 - Paginate through large datasets
@@ -21,8 +21,8 @@ A web application for uploading and viewing CSV files in a data table format.
 
 1. Clone the repository:
    ```
-   git clone https://github.com/yourusername/csv-viewer-app.git
-   cd csv-viewer-app
+   git clone git@github.com:infrat/chirp2vgc.git
+   cd chirp2vgc
    ```
 
 2. Install dependencies:
