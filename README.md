@@ -47,13 +47,6 @@ A web application for uploading and viewing CHIRP CSV files in a data table form
 3. You can sort the data by clicking on column headers.
 4. Use the pagination controls to navigate through large datasets.
 
-## Testing
-
-Sample CSV files are included in the `test-data` directory:
-
-- `sample.csv` - A simple CSV file with basic user data
-- `complex_data.csv` - A more complex CSV file with multiple columns
-
 ## Technologies Used
 
 - Angular 19
